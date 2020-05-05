@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="card mt-md-3 shadow-sm">
+      <div class="card-header bg-primary text-white">
+        Formulario de inicio de sesión
+      </div>
+      <div class="card-body d-flex justify-content-center shadow-sm">
+        <form [formGroup]="formulario">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" formControlName="email"/>
+            <p class="text-danger" *ngIf="(this.formulario.controls.email.dirty || this.formulario.controls.email.touched) && this.formulario.controls.email.invalid">Campo requerido. El correo debe ser válido.</p>
+          </div>
+          <div class="form-group">
+            <label for="pass">Password</label>
+            <input type="password" class="form-control" name="pass" formControlName="password"/>
+            <p class="text-danger" *ngIf="(this.formulario.controls.password.dirty || this.formulario.controls.password.touched) && this.formulario.controls.password.invalid">Campo requerido. La clave debe tener minimo 8 caracteres y máximo 16.</p>
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" class="form-control" name="age" formControlName=age/>
+            <p class="text-danger" *ngIf="(this.formulario.controls.age.dirty || this.formulario.controls.age.touched) && this.formulario.controls.age.invalid">Campo requerido. El usuario debe ser mayor de edad.</p>
+          </div>
+          <button [disabled]="this.formulario.invalid" (click)="registrarUsuario()" class="btn btn-success" type="submit">Sign in</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>
